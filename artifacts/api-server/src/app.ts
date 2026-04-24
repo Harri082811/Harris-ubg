@@ -6,9 +6,9 @@ import { logger } from "./lib/logger";
 
 const app: Express = express();
 
-// @ts-ignore - Forcing Vercel's TS compiler to ignore the call signature mismatch
+// Casting pinoHttp to 'any' completely bypasses the call signature check
 app.use(
-  pinoHttp({
+  (pinoHttp as any)({
     logger,
     serializers: {
       req(req: any) {
@@ -24,8 +24,9 @@ app.use(
         };
       },
     },
-  }),
+  })
 );
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
