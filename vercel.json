@@ -1,5 +1,5 @@
 {
-  "installCommand": "pnpm install",
+  "installCommand": "corepack enable && pnpm install",
   "buildCommand": "pnpm run build",
   "framework": "express",
   "outputDirectory": "artifacts/api-server/dist"
