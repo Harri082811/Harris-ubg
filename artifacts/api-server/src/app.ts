@@ -5,7 +5,7 @@ import router from "./routes";
 
 const app: Express = express();
 
-// Basic logger that doesn't require the broken pino-http library
+// This replaces the broken pino logger with a standard one that never fails
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
