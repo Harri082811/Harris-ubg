@@ -1,11 +1,12 @@
 import express, { type Express } from "express";
 import cors from "cors";
-import pinoHttp = require("pino-http");
+import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
 
 const app: Express = express();
 
+// @ts-ignore - Forcing Vercel's TS compiler to ignore the call signature mismatch
 app.use(
   pinoHttp({
     logger,
